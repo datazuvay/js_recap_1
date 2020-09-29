@@ -57,8 +57,10 @@ function addColor() {
 
   // indexOf SADECE flat array (["red", "blue"] / [1, 2, 3]) geçerlidir.
   // findIndex object arraylerde geçerlidir.
-
-  if (colors.findIndex((color) => color.name === colorObject.name) === -1) {
+  const searchedColorIndex = colors.findIndex(
+    (myColor) => myColor.name === colorObject.name
+  );
+  if (searchedColorIndex === -1) {
     document.querySelector("body").style.backgroundColor = colorObject.name;
     document.querySelector("#colorName").textContent = colorObject.name;
     document.querySelector("#colorDesc").textContent = colorObject.motto;
@@ -70,3 +72,8 @@ function addColor() {
     alert("Renk zaten mevcut!");
   }
 }
+
+// Kullanıcı boş bir değer girerse?
+// Kullanıcı geçersiz bir değer girerse?
+
+// Bir input daha ekleyin: kullanıcıdan hex'a değer #eceff1?

@@ -1,6 +1,27 @@
 // Change The Colors!
 
-const colors = ["red", "blue", "gray", "green", "purple"];
+const colors = [
+  {
+    name: "red",
+    motto: "Rose Red",
+  },
+  {
+    name: "blue",
+    motto: "Ocean Blue",
+  },
+  {
+    name: "gray",
+    motto: "Smoke Gray",
+  },
+  {
+    name: "green",
+    motto: "Grass Green",
+  },
+  {
+    name: "purple",
+    motto: "Deep Purple",
+  },
+];
 
 const randomColorButton = document.querySelector("#randomColorButton");
 const addColorButton = document.querySelector("#setColorButton");
@@ -16,8 +37,11 @@ randomColorButton.addEventListener("click", changeColors);
 function changeColors() {
   const randomIndex = Math.floor(Math.random() * colors.length);
 
-  document.querySelector("#colorName").textContent = colors[randomIndex];
-  document.querySelector("body").style.backgroundColor = colors[randomIndex];
+  document.querySelector("#colorName").textContent = colors[randomIndex].name;
+  document.querySelector("#colorDesc").textContent = colors[randomIndex].motto;
+
+  document.querySelector("body").style.backgroundColor =
+    colors[randomIndex].name;
 }
 
 // 2) Kullanıcının girdiği string'i renk listesine eklemek ve arkaplanı o renk ile güncellemek

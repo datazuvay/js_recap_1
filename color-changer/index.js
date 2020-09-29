@@ -55,11 +55,15 @@ function addColor() {
     motto: colorData[1],
   };
 
-  colors.push(colorObject);
+  // indexOf SADECE flat array (["red", "blue"] / [1, 2, 3]) geçerlidir.
+  // findIndex object arraylerde geçerlidir.
 
-  if (colors.indexOf(userInput.value) === -1) {
-    document.querySelector("body").style.backgroundColor = userInput.value;
-    colors.push(userInput.value);
+  if (colors.findIndex((color) => color.name === colorObject.name) === -1) {
+    document.querySelector("body").style.backgroundColor = colorObject.name;
+    document.querySelector("#colorName").textContent = colorObject.name;
+    document.querySelector("#colorDesc").textContent = colorObject.motto;
+
+    colors.push(colorObject);
     userInput.value = "";
     userInput.focus();
   } else {

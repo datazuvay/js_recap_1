@@ -22,5 +22,14 @@ function changeColors() {
 
 // 2) Kullanıcının girdiği string'i renk listesine eklemek ve arkaplanı o renk ile güncellemek
 function addColor() {
-  console.log("Add color..");
+  const userInput = document.querySelector(".colorInput");
+
+  if (colors.indexOf(userInput.value) === -1) {
+    document.querySelector("body").style.backgroundColor = userInput.value;
+    colors.push(userInput.value);
+    userInput.value = "";
+    userInput.focus();
+  } else {
+    alert("Renk zaten mevcut!");
+  }
 }

@@ -48,6 +48,15 @@ function changeColors() {
 function addColor() {
   const userInput = document.querySelector(".colorInput");
 
+  const colorData = userInput.value.split(":");
+
+  const colorObject = {
+    name: colorData[0],
+    motto: colorData[1],
+  };
+
+  colors.push(colorObject);
+
   if (colors.indexOf(userInput.value) === -1) {
     document.querySelector("body").style.backgroundColor = userInput.value;
     colors.push(userInput.value);

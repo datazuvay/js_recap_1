@@ -80,3 +80,38 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+
+window.addEventListener("DOMContentLoaded", function () {
+  displayMenuItems();
+});
+
+// {
+//   id: 1,
+//   title: "buttermilk pancakes",
+//   category: "breakfast",
+//   price: 15.99,
+//   img: "./images/item-1.jpeg",
+//   desc: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
+// },
+
+const sectionElement = document.querySelector(".section-center");
+
+function displayMenuItems() {
+  let sectionContent = "";
+
+  menu.forEach((item) => {
+    sectionContent += `<article class="menu-item">
+        <img src=${item.img} alt="menu item" class="photo" />
+        <div class="item-info">
+          <header>
+            <h4>${item.title}</h4>
+            <h4 class="price">$${item.price}</h4>
+          </header>
+          <p class="item-text">
+            ${item.desc}
+          </p>
+        </div>
+      </article>`;
+  });
+  sectionElement.innerHTML = sectionContent;
+}

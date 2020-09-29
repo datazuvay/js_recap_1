@@ -126,4 +126,18 @@ function displayCategoryItems() {
   });
 
   categoryElement.innerHTML = categoryContent;
+
+  // =============
+
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  filterButtons.forEach((button) => {
+    // event
+    button.addEventListener("click", function (e) {
+      // Yemek filtreleme işlemi gerçekleşecek.
+
+      const filteredMenu = menu.filter((item) => item.category === e.target.getAttribute("data-id"));
+      console.log(filteredMenu);
+    });
+  });
 }
